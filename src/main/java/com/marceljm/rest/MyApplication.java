@@ -10,7 +10,7 @@ import javax.ws.rs.core.Application;
 
 import org.glassfish.jersey.jettison.JettisonFeature;
 
-@ApplicationPath(value = "/rest/*")
+@ApplicationPath(value = "/rest")
 public class MyApplication extends Application {
 
 	@Override
