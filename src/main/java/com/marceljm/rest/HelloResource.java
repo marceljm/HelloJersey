@@ -1,5 +1,6 @@
 package com.marceljm.rest;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -10,12 +11,16 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.marceljm.entity.MyMediaType;
+import org.springframework.stereotype.Component;
 
+import com.marceljm.entity.Product;
+
+@Component
 @Path("/hello")
 public class HelloResource {
 
-	MyMediaType myMediaType = new MyMediaType();
+	@Inject
+	Product product;
 
 	@GET
 	public String get() {
@@ -54,17 +59,17 @@ public class HelloResource {
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.TEXT_XML })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.TEXT_XML })
 	public Response helloXml() {
-		myMediaType.setType("XML");
-		myMediaType.setMessage("Hello, XML!");
-		return Response.ok(myMediaType).build();
+		product.setId(1L);
+		product.setName("Hello, XML!");
+		return Response.ok(product).build();
 	}
 
 	@GET
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response helloJson() {
-		myMediaType.setType("JSON");
-		myMediaType.setMessage("Hello, JSON!");
-		return Response.ok(myMediaType).build();
+		product.setId(2L);
+		product.setName("Hello, JSON!");
+		return Response.ok(product).build();
 	}
 }
