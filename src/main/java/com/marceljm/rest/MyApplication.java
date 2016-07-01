@@ -23,7 +23,7 @@ public class MyApplication extends Application {
 	@Override
 	public Map<String, Object> getProperties() {
 		Map<String, Object> properties = new HashMap<>();
-		properties.put("jersey.config.server.provider.packages", "com.marceljm.rest");
+		properties.put("jersey.config.server.provider.packages", "com.marceljm");
 		return properties;
 	}
 
