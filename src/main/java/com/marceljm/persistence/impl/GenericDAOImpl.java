@@ -27,7 +27,7 @@ public class GenericDAOImpl<T> implements GenericDAO<T> {
 
 	@Override
 	public void insert(T t) {
-		manager.persist(t);
+		manager.persist(manager.contains(t) ? manager.merge(t) : t);
 	}
 
 	@Override

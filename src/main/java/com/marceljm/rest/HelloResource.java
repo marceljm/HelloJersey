@@ -1,6 +1,7 @@
 package com.marceljm.rest;
 
-import javax.annotation.PostConstruct;
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -21,6 +22,8 @@ import com.marceljm.service.GenericService;
 
 @Component
 @Path("/hello")
+@Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
+@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class HelloResource {
 
 	@Inject
@@ -32,15 +35,9 @@ public class HelloResource {
 	@Inject
 	GenericService<Product> productService;
 
-	@PostConstruct
-	public void init() {
-		product.setId(1L);
-		product.setName("Car");
-	}
-
 	@GET
-	public Response get() {
-		return Response.ok(productService.select(Product.class).get(0)).build();
+	public List<Product> get() {
+		return productService.select(Product.class);
 	}
 
 	@POST
