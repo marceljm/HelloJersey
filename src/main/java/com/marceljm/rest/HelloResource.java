@@ -4,12 +4,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -21,16 +18,10 @@ import com.marceljm.entity.Product;
 import com.marceljm.service.GenericService;
 
 @Component
-@Path("/hello")
+@Path("/products")
 @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class HelloResource {
-
-	@Inject
-	Product product;
-
-	@Inject
-	Message message;
 
 	@Inject
 	GenericService<Product> productService;
@@ -41,27 +32,26 @@ public class HelloResource {
 	}
 
 	@POST
-	public Response post() {
+	public Response post(Product product) {
 		productService.insert(product);
-		message.setMessage("Insert");
-		return Response.ok(message).build();
+		return Response.ok(new Message("Product Inserted")).build();
 	}
 
-	@PUT
-	public Response put() {
-		product.setName("House");
-		productService.update(product);
-		message.setMessage("Update");
-		return Response.ok(message).build();
-	}
-
-	@DELETE
-	@Path("{id}")
-	public Response delete(@PathParam("id") Long id) {
-		productService.delete(productService.select(Product.class, id));
-		message.setMessage("Delete");
-		return Response.ok(message).build();
-	}
+	// @PUT
+	// public Response put() {
+	// product.setName("House");
+	// productService.update(product);
+	// message.setMessage("Update");
+	// return Response.ok(message).build();
+	// }
+	//
+	// @DELETE
+	// @Path("{id}")
+	// public Response delete(@PathParam("id") Long id) {
+	// productService.delete(productService.select(Product.class, id));
+	// message.setMessage("Delete");
+	// return Response.ok(message).build();
+	// }
 
 	// @GET
 	// @Consumes(MediaType.TEXT_HTML)
