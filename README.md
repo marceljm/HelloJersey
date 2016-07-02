@@ -1,5 +1,5 @@
 # HelloJersey
-It's a WebService project developed using:
+It's a RESTful Web Service project developed using:
 <br><i>- Java</i>
 <br><i>- Jersey</i>
 <br><i>- Spring</i>
