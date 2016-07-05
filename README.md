@@ -4,11 +4,12 @@ It's a RESTful Web Service project developed using:
 <br><i>- Jersey</i>
 <br><i>- Spring</i>
 <br><i>- Hibernate</i>
+<br><i>- JUnit</i>
 <br><i>- Maven</i>
-<br><i>- Tomcat/WebLogic</i>
 <br><i>- MySQL</i>
+<br><i>- Tomcat</i>
 
-To test, you can use Postman, that should produce and consume JSON:
+To test, you can run the tests or use Postman (Chrome Extension), that should produce and consume JSON:
 <br>
 <br><b>GET:</b>
 <br><i>- http://localhost:8080/HelloJersey/rest/products/</i>
