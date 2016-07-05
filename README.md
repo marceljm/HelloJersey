@@ -1,30 +1,40 @@
 # HelloJersey
 It's a RESTful Web Service project developed using:
-<br><i>- Java</i>
-<br><i>- Jersey</i>
-<br><i>- Spring</i>
-<br><i>- Hibernate</i>
-<br><i>- JUnit</i>
-<br><i>- Maven</i>
-<br><i>- MySQL</i>
-<br><i>- Tomcat</i>
+<i>
+<br>- Java
+<br>- Jersey
+<br>- Spring
+<br>- Hibernate
+<br>- JUnit
+<br>- Maven
+<br>- MySQL
+<br>- Tomcat
+</i>
 
 To test, you can run the tests or use Postman (Chrome Extension), that should produce and consume JSON:
 <br>
 <br><b>GET:</b>
-<br><i>- http://localhost:8080/HelloJersey/rest/products/</i>
-<br><i>- http://localhost:8080/HelloJersey/rest/products/{id}</i>
+<i>
+<br>- http://localhost:8080/HelloJersey/rest/products/
+<br>- http://localhost:8080/HelloJersey/rest/products/{id}
+</i>
 
 <br><b>POST/PUT:</b>
-<br><i>- http://localhost:8080/HelloJersey/rest/products/</i>
+<i>
+<br>- http://localhost:8080/HelloJersey/rest/products/
+</i>
 
-<br><i>Example:</i>
+<br>Example:
+<i>
 <br>{
 <br>&emsp;"product": {
 <br>&emsp;&emsp;"id": 1,
 <br>&emsp;&emsp;"name": "TV"
 <br>&emsp;}
 <br>}
+</i>
 
 <br><b>DELETE:</b>
-<br><i>- http://localhost:8080/HelloJersey/rest/products/{id}</i>
+<i>
+<br>- http://localhost:8080/HelloJersey/rest/products/{id}
+</i>
