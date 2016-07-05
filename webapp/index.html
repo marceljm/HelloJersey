@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Hello, Jersey!!!</title>
+
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<script>
+	var app = angular.module('myApp', []);
+
+	app.controller('myCtrl', function($scope) {
+		$scope.firstName = "John";
+		$scope.lastName = "Jacques";
+	});
+</script>
+
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl" ng-init="firstName='Marcel'">
+		<input type="text" ng-model="lastName" placeholder="Last Name">
+		<h1>Hello, {{firstName}} {{lastName}}</h1>
+		<span ng-bind="firstName"></span>
+		<p ng-bind="lastName"></p>
+		<p>One + One = {{ 1 + 1 }}</p>
+		<p>{{firstName + " " + lastName}}</p>
+	</div>
+</body>
+</html>
