@@ -10,21 +10,20 @@
 <script src="resources/js/myApp.js"></script>
 <script src="resources/js/myCtrl.js"></script>
 
+<link rel="stylesheet" type="text/css" href="resources/css/myStyle.css">
+
 </head>
-<body>
-	<div ng-app="myApp" ng-controller="myCtrl"
+<body ng-app="myApp">
+
+	<div ng-controller="myCtrl"
 		ng-init="
 			firstName='Marcel';
 			firstValue=1;
 			person={firstName:'John',lastName:'Doe'};
 			points=[1,15,19,2,40];
-			names=[
-				{name:'Jani',country:'Norway'},
-				{name:'Hege',country:'Sweden'},
-				{name:'Kai',country:'Denmark'}
-			];
 		">
-		<h1>Hello, {{firstName}} {{lastName}}</h1>
+		<b>ng-click</b>
+		<h1 ng-click="changeName()">Hello, {{firstName}} {{lastName}}</h1>
 
 		<b>ng-model</b>
 		<p>
@@ -57,6 +56,30 @@
 			<li ng-repeat="x in names">{{ x.name + ', ' + x.country }}</li>
 		</ul>
 
+		<b>ng-show</b>
+		<form ng-app="" name="myForm"
+			ng-init="email='marcel.machado@telefonica.com'">
+			Email: <input type="email" name="myAddress" ng-model="email" required>
+			<span ng-show="myForm.myAddress.$error.email">Invalid e-mail</span>
+			<p>
+				<b>form status</b>
+			<p>Valid: {{myForm.myAddress.$valid}} (if true, the value meets
+				all criteria).</p>
+			<p>Dirty: {{myForm.myAddress.$dirty}} (if true, the value has
+				been changed).</p>
+			<p>Touched: {{myForm.myAddress.$touched}} (if true, the field has
+				been in focus).</p>
+		</form>
+
+		<b>function</b>
+		<p>{{fullName()}}</p>
+
+		<b>scope (ng-controller)</b>
+		<p>{{myScope}}</p>
 	</div>
+
+	<b>scope (ng-app)</b>
+	<p>{{myScope}}</p>
+
 </body>
 </html>

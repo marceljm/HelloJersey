@@ -1,0 +1,13 @@
+/* CSS Classes: 
+ng-empty
+ng-not-empty
+ng-touched
+ng-untouched
+ng-valid
+ng-invalid
+ng-dirty
+ng-pending
+ng-pristine */
+input.ng-invalid {
+	background-color: lightblue;
+}
