@@ -7,24 +7,56 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
-<script>
-	var app = angular.module('myApp', []);
-
-	app.controller('myCtrl', function($scope) {
-		$scope.firstName = "John";
-		$scope.lastName = "Jacques";
-	});
-</script>
+<script src="resources/js/myApp.js"></script>
+<script src="resources/js/myCtrl.js"></script>
 
 </head>
 <body>
-	<div ng-app="myApp" ng-controller="myCtrl" ng-init="firstName='Marcel'">
-		<input type="text" ng-model="lastName" placeholder="Last Name">
+	<div ng-app="myApp" ng-controller="myCtrl"
+		ng-init="
+			firstName='Marcel';
+			firstValue=1;
+			person={firstName:'John',lastName:'Doe'};
+			points=[1,15,19,2,40];
+			names=[
+				{name:'Jani',country:'Norway'},
+				{name:'Hege',country:'Sweden'},
+				{name:'Kai',country:'Denmark'}
+			];
+		">
 		<h1>Hello, {{firstName}} {{lastName}}</h1>
-		<span ng-bind="firstName"></span>
-		<p ng-bind="lastName"></p>
-		<p>One + One = {{ 1 + 1 }}</p>
+
+		<b>ng-model</b>
+		<p>
+			<input type="text" ng-model="lastName" placeholder="Last Name">
+			<input type="number" ng-model="firstValue" placeholder="First Value">
+		<p />
+
+		<b>expression (number)</b>
+		<p>{{firstValue * 2}}</p>
+
+		<b>expression (string)</b>
 		<p>{{firstName + " " + lastName}}</p>
+
+		<b>ng-bind</b>
+		<p ng-bind="firstName + ' ' + lastName"></p>
+
+		<b>object attributes</b>
+		<p>{{person.firstName + " " + person.lastName}}</p>
+
+		<b>array element</b>
+		<p>{{points[2]}}</p>
+
+		<b>ng-repeat</b>
+		<ul>
+			<li ng-repeat="x in points">{{ x }}</li>
+		</ul>
+
+		<b>ng-repeat (array of objects)</b>
+		<ul>
+			<li ng-repeat="x in names">{{ x.name + ', ' + x.country }}</li>
+		</ul>
+
 	</div>
 </body>
 </html>
