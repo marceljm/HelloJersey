@@ -20,19 +20,21 @@
 			firstName='Marcel';
 			firstValue=1;
 			person={firstName:'John',lastName:'Doe'};
-			points=[1,15,19,2,40];
-		">
+			points=[1,15,19,2,40];">
+
 		<b>ng-click</b>
 		<h1 ng-click="changeName()">Hello, {{firstName}} {{lastName}}</h1>
 
 		<b>ng-model</b>
 		<p>
 			<input type="text" ng-model="lastName" placeholder="Last Name">
-			<input type="number" ng-model="firstValue" placeholder="First Value">
 		<p />
 
 		<b>expression (number)</b>
-		<p>{{firstValue * 2}}</p>
+		<p>
+			<input type="number" ng-model="firstValue" placeholder="First Value">
+			{{firstValue * 2}}
+		</p>
 
 		<b>expression (string)</b>
 		<p>{{firstName + " " + lastName}}</p>
@@ -74,12 +76,89 @@
 		<b>function</b>
 		<p>{{fullName()}}</p>
 
+		<b>filter (uppercase)</b>
+		<p>{{ 'AngularJS' | uppercase }}</p>
+
+		<b>filter (lowercase)</b>
+		<p>{{ 'AngularJS' | lowercase }}</p>
+
+		<b>filter (currency)</b>
+		<p>{{ 10 | currency }}</p>
+
+		<b>filter (order by)</b>
+		<ul>
+			<li ng-repeat="x in names | orderBy:'country'">{{ x.name + ', '
+				+ x.country }}</li>
+		</ul>
+
+		<b>filter (filter:string)</b>
+		<ul>
+			<li ng-repeat="x in names | filter : 'den'">{{ x }}</li>
+		</ul>
+
+		<b>filter (filter:ng-model)</b>
+		<p>
+			<input type="text" ng-model="test">
+		</p>
+		<ul>
+			<li ng-repeat="x in names | filter : test">{{ x }}</li>
+		</ul>
+
+		<b>filter (my own)</b>
+		<ul>
+			<li ng-repeat="x in names | uppercase">{{x.name | myFormat}}</li>
+		</ul>
+
+		<b>other filters</b>
+		<p>date, json, limitTo and number</p>
+
+		<b>service (location)</b>
+		<p>{{myUrl}}</p>
+
+		<b>service (http/POST)</b>
+		<button ng-click="insert()">Insert</button>
+		<p>Data: {{postData}}</p>
+
+		<b>service (http/PUT)</b>
+		<button ng-click="update()">Put</button>
+		<p>Data: {{putData}}</p>
+
+		<b>service (http/DELETE)</b>
+		<button ng-click="delete()">Delete</button>
+		<p>Data: {{deleteData}}</p>
+
+		<b>service (http/GET)</b>
+		<button ng-click="select()">Select</button>
+		<p>Data: {{content}}</p>
+		<p>Status: {{statuscode}}</p>
+		<p>StatusText: {{statustext}}</p>
+		<p>Config: {{config}}</p>
+		<p>Headers: {{headers}}</p>
+		<p>Products: </p>
+		<ul>
+			<li ng-repeat="x in products">{{x.name}}</li>
+		</ul>
+
+		<b>service (http/GET using then)</b>
+		<p>Data: {{responseData}}</p>
+
+		<b>service (timeout)</b>
+		<p>{{firstName}}</p>
+
 		<b>scope (ng-controller)</b>
 		<p>{{myScope}}</p>
 	</div>
 
 	<b>scope (ng-app)</b>
 	<p>{{myScope}}</p>
+
+	<div ng-controller="myCtrlInterval">
+		<b>service (interval)</b>
+		<p>{{theTime}}</p>
+
+		<b>service (my own)</b>
+		<p>{{hex}}</p>
+	</div>
 
 </body>
 </html>
