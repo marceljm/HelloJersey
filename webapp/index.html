@@ -7,6 +7,9 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
 <script src="resources/js/myApp.js"></script>
 <script src="resources/js/myCtrl.js"></script>
 
@@ -206,7 +209,57 @@
 		<b>event (ng-click)</b>
 		<button ng-click="count = count + 1">Click Me!</button>
 		<p>{{ count }}</p>
+
+
+		<b>ng-switch</b>
+
+		<form>
+			Pick a topic: <input type="radio" ng-model="myVar" value="dogs">Dogs
+			<input type="radio" ng-model="myVar" value="tuts">Tutorials <input
+				type="radio" ng-model="myVar" value="cars">Cars
+		</form>
+		<div ng-switch="myVar">
+			<div ng-switch-when="dogs">
+				<p>Dogs</p>
+			</div>
+			<div ng-switch-when="tuts">
+				<p>Tutorials</p>
+			</div>
+			<div ng-switch-when="cars">
+				<p>Cars</p>
+			</div>
+		</div>
+		<p></p>
+
+		<b>own directive (validation)</b>
+		<form name="myForm">
+			<input name="myInput" ng-model="myInput"
+				placeholder="Type 'E' to validate" required my-directive>
+		</form>
+
+		<b>isString()</b>
+		<p>test is string? {{x2}}</p>
+
+		<b>isNumber()</b>
+		<p>12345 is number? {{x1}}</p>
+
+		<b>ng-include (same domain)</b>
+		<div ng-include="'header.html'"></div>
+
+		<b>ng-include (other domain)</b>
+		<div ng-include="'http://www.refsnesdata.no/angular_include.asp'"></div>
+
+
 	</div>
+
+
+	<b>route</b>
+	<p>
+		<a href="#/">Main</a>
+	</p>
+	<a href="#a">A</a>
+	<a href="#b">B</a>
+	<div ng-view></div>
 
 </body>
 </html>

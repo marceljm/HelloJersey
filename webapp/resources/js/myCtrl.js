@@ -100,10 +100,50 @@ app.controller('myCtrlInterval', function($interval, $scope, hexafy, $http) {
     }
     
     $scope.count = 0;
+    
+    $scope.x1 = angular.isNumber(12345);
+    $scope.x2 = angular.isString("test");
 });
 
 app.service('hexafy', function() {
 	this.myFunc = function(x) {
 		return x.toString(16);
 	}
+});
+
+app.directive('myDirective', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attr, mCtrl) {
+            function myValidation(value) {
+                if (value.indexOf("e") > -1) {
+                    mCtrl.$setValidity('charE', true);
+                } else {
+                    mCtrl.$setValidity('charE', false);
+                }
+                return value;
+            }
+            mCtrl.$parsers.push(myValidation);
+        }
+    };
+});
+
+app.config(function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+        'http://www.refsnesdata.no/**',
+        'http://localhost:8080/HelloJersey/**',
+    ]);
+});
+
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("", {
+        templateUrl : "index.html"
+    })
+    .when("/a", {
+        templateUrl : "A.html"
+    })
+    .when("/b", {
+        templateUrl : "B.html"
+    })
 });
