@@ -53,14 +53,25 @@
 			<li ng-repeat="x in points">{{ x }}</li>
 		</ul>
 
+		<b>select {{selected}}</b>
+		<p>
+			<select ng-model="selected">
+				<option ng-repeat="x in names">{{x.country}}</option>
+			</select>
+		</p>
+
 		<b>ng-repeat (array of objects)</b>
-		<ul>
-			<li ng-repeat="x in names">{{ x.name + ', ' + x.country }}</li>
-		</ul>
+		<table>
+			<tr ng-repeat="x in names">
+				<td>{{ $index }}</td>
+				<td>{{ x.name }}</td>
+				<td>{{ x.country }}</td>
+			</tr>
+		</table>
+		<p></p>
 
 		<b>ng-show</b>
-		<form ng-app="" name="myForm"
-			ng-init="email='marcel.machado@telefonica.com'">
+		<form name="myForm" ng-init="email='marcel.machado@telefonica.com'">
 			Email: <input type="email" name="myAddress" ng-model="email" required>
 			<span ng-show="myForm.myAddress.$error.email">Invalid e-mail</span>
 			<p>
@@ -134,7 +145,7 @@
 		<p>StatusText: {{statustext}}</p>
 		<p>Config: {{config}}</p>
 		<p>Headers: {{headers}}</p>
-		<p>Products: </p>
+		<p>Products:</p>
 		<ul>
 			<li ng-repeat="x in products">{{x.name}}</li>
 		</ul>
@@ -158,6 +169,43 @@
 
 		<b>service (my own)</b>
 		<p>{{hex}}</p>
+
+		<b>Key-Value (select by key)</b>
+		<p>
+			<select ng-model="selectedCar" ng-options="x for (x, y) in cars">
+			</select>
+		</p>
+		<p>You selected: {{selectedCar.brand}}</p>
+		<p>Model: {{selectedCar.model}}</p>
+		<p>Color: {{selectedCar.color}}</p>
+
+		<b>Key-Value (select by value)</b>
+		<p>
+			<select ng-model="selectedCar"
+				ng-options="y.brand for (x, y) in cars">
+			</select>
+		</p>
+		<p>You selected: {{selectedCar.brand}}</p>
+		<p>Model: {{selectedCar.model}}</p>
+		<p>Color: {{selectedCar.color}}</p>
+
+		<b>ng-disabled</b>
+		<p>
+			<input type="checkbox" ng-model="mySwitch" />
+			<button ng-disabled="mySwitch">Click Me!</button>
+		</p>
+
+		<b>ng-show</b>
+		<p ng-show="true">I am visible.</p>
+		<p ng-show="false">I am not visible.</p>
+
+		<b>event (ng-mouseover)</b>
+		<p ng-mousemove="count = count + 1">Mouse Over Me!</p>
+		<p>{{ count }}</p>
+
+		<b>event (ng-click)</b>
+		<button ng-click="count = count + 1">Click Me!</button>
+		<p>{{ count }}</p>
 	</div>
 
 </body>

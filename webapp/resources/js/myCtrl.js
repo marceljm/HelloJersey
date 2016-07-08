@@ -92,6 +92,14 @@ app.controller('myCtrlInterval', function($interval, $scope, hexafy, $http) {
 	}, 1000);
 
 	$scope.hex = hexafy.myFunc(255);
+	
+    $scope.cars = {
+    		car01 : {brand : "Ford", model : "Mustang", color : "red"},
+    		car02 : {brand : "Fiat", model : "500", color : "white"},
+    		car03 : {brand : "Volvo", model : "XC90", color : "black"}
+    }
+    
+    $scope.count = 0;
 });
 
 app.service('hexafy', function() {
