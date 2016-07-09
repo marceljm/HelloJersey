@@ -135,6 +135,7 @@ app.config(function($sceDelegateProvider) {
     ]);
 });
 
+// To enable the code below, comment the code above
 app.config(function($routeProvider) {
     $routeProvider
     .when("", {
