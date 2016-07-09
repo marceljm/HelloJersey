@@ -21,6 +21,7 @@ public class GenericDAOImpl<T> implements GenericDAO<T> {
 		return manager.createQuery("SELECT t FROM " + clazz.getSimpleName() + " t").getResultList();
 	}
 
+	@Override
 	public T select(Class<T> clazz, Long id) {
 		return manager.find(clazz, id);
 	}
