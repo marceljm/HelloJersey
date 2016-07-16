@@ -5,6 +5,7 @@ It's a RESTful Web Service project developed using:
 <br>- Jersey
 <br>- Spring
 <br>- Hibernate
+<br>- Jettison
 <br>- JUnit
 <br>- Maven
 <br>- MySQL
